@@ -5,7 +5,7 @@
 SortedBag::SortedBag(Relation r) {
     //TODO - Implementation
     this->length= 0;
-    this->capacity = 10;
+    this->capacity = 1000;
     this->relation = r;
     this->hashTable = new TElem[capacity];
     this->empty =-1111;
@@ -44,12 +44,12 @@ bool SortedBag::remove(TComp e) {
         pos = h(e, i);
     }
     if (i == this->capacity || this->hashTable[pos]==this->empty)
-        return NULL_TCOMP;
+        return false;
     this->length--;
 
-    TElem toReturn = this->hashTable[pos];
+    //TElem toReturn = this->hashTable[pos];
     this->hashTable[pos] = this->deleted;
-    return toReturn;
+    return true;
 }
 
 
