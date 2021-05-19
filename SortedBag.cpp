@@ -21,18 +21,15 @@ void SortedBag::add(TComp e) {
 
     int i=0;
     int pos = h(e,i);
+
     while (i < this->capacity && this->hashTable[pos] != this->empty && this->hashTable[pos]!=this->deleted ) {
-        if (this->hashTable[pos] == e)
-            break;
         i++;
         pos = h(e, i);
     }
+
     TElem old = this->hashTable[pos];
     if (old == this->empty|| old == this->deleted) {
         this->length++;
-        this->hashTable[pos] = e;
-    }
-    else {
         this->hashTable[pos] = e;
     }
 }
@@ -49,6 +46,7 @@ bool SortedBag::remove(TComp e) {
     if (i == this->capacity || this->hashTable[pos]==this->empty)
         return NULL_TCOMP;
     this->length--;
+
     TElem toReturn = this->hashTable[pos];
     this->hashTable[pos] = this->deleted;
     return toReturn;
@@ -71,15 +69,13 @@ bool SortedBag::search(TComp elem) const {
 
 int SortedBag::nrOccurrences(TComp elem) const {
     //TODO - Implementation
-    int noOccurrence=0, pos;
-    int i = 0;
-    pos = h(elem, i);
-    while(i<this->capacity && this->hashTable[pos]!=elem && this->hashTable[pos]!=this->empty){
-        i++;
-        pos = h(elem, i);
-    }
-    if(hashTable[pos]== elem)
+    int noOccurrence=0;
+    for(int i=0;i<length; i++)
+    {
+        if(hashTable[i] == elem)
         noOccurrence++;
+    }
+
     return noOccurrence;
 }
 
@@ -106,6 +102,8 @@ SortedBag::~SortedBag() {
     //TODO - Implementation
     delete[] this->hashTable;
 }
+
+
 
 int SortedBag::hCode(TElem elem) {
     return abs(int(elem));

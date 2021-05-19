@@ -16,7 +16,6 @@ class SortedBag {
 private:
     //TODO - Representation
     Relation relation;
-    TComp * elems;
     TComp *hashTable;
     TComp empty, deleted;
     static int hCode(TElem elem);
