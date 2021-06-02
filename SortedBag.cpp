@@ -46,7 +46,7 @@ void SortedBag::add(TComp e) {
         }
         delete[] oldTable;
     }
-}//Complexity:
+}//Complexity: O(n)
 
 
 bool SortedBag::remove(TComp e) {
