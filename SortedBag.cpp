@@ -9,12 +9,12 @@ SortedBag::SortedBag(Relation r) {
     this->relation = r;
     this->hashTable = new TElem[capacity];
     this->empty =-1111;
-    this->deleted = -1111;
+    this->deleted = -1112;
 
     for (int i = 0; i < capacity; i++) {
         this->hashTable[i] = this->empty;
     }
-}//Complexity O(n)
+}//Complexity: O(n)
 
 void SortedBag::add(TComp e) {
     //TODO - Implementation
@@ -59,14 +59,12 @@ bool SortedBag::remove(TComp e) {
     }
     if (i == this->capacity || this->hashTable[pos] == this->empty)
         return false;
-
     this->length--;
 
+    //TElem toReturn = this->hashTable[pos];
     this->hashTable[pos] = this->deleted;
     return true;
-}//Complexity: worst case: O(n)
-//              best case: Theta(1)
-//              average case: O(n)
+}//Complexity: O(n)
 
 
 bool SortedBag::search(TComp elem) const {
@@ -80,9 +78,7 @@ bool SortedBag::search(TComp elem) const {
     if (i == this->capacity || this->hashTable[pos] == this->empty)
         return false;
     return true;
-}//Complexity: worst case: O(n)
-//              best case: Theta(1)
-//              average case: O(n)
+}//Complexity: O(n)
 
 
 int SortedBag::nrOccurrences(TComp elem) const {
@@ -99,9 +95,7 @@ int SortedBag::nrOccurrences(TComp elem) const {
     }
 
     return noOccurrence;
-}//Complexity: worst case: O(n)
-//              best case: Theta(1)
-//              average case: O(n)
+}//Complexity: O(n)
 
 
 
@@ -119,7 +113,7 @@ bool SortedBag::isEmpty() const {
 
 SortedBagIterator SortedBag::iterator() const {
     return SortedBagIterator(*this);
-}//Complexity: Theta(1)
+}
 
 
 SortedBag::~SortedBag() {
