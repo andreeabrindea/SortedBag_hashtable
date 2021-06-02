@@ -59,9 +59,9 @@ bool SortedBag::remove(TComp e) {
     }
     if (i == this->capacity || this->hashTable[pos] == this->empty)
         return false;
+
     this->length--;
 
-    //TElem toReturn = this->hashTable[pos];
     this->hashTable[pos] = this->deleted;
     return true;
 }//Complexity: worst case: O(n)
