@@ -26,28 +26,28 @@ SortedBagIterator::SortedBagIterator(const SortedBag& b) : bag(b) {
         }
     }
 
-}
+}//Complexity:
 
 TComp SortedBagIterator::getCurrent() {
     //TODO - Implementation
     if (!valid())
         throw std::exception();
     return this->array[this->index];
-}
+}//Complexity: Theta(1)
 
 bool SortedBagIterator::valid() {
     //TODO - Implementation
     return this->index < this->length;
-}
+}//Complexity: Theta(1)
 
 void SortedBagIterator::next() {
     //TODO - Implementation
     if (!valid())
         throw std::exception();
     this->index++;
-}
+}//Complexity: Theta(1)
 
 void SortedBagIterator::first() {
     //TODO - Implementation
     this->index = 0;
-}
+}//Complexity: Theta(1)
